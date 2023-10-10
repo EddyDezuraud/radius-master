@@ -52,9 +52,8 @@ watch(() => props.padding, (newVal) => {
 
 <template>
     <div>
-        {{ props.inner }}
-        <FormInput @change="onChange('outer', localOuter)" v-model="localOuter" label="Outer" />
-        <FormInput @change="onChange('inner', localInner)" v-model="localInner" label="Inner" />
-        <FormInput @change="onChange('padding', localPadding)" v-model="localPadding" label="Padding" />
+        <FormInput @change="onChange('outer', localOuter)" v-model="localOuter" label="Outer" color="#FF1D53" />
+        <FormInput @change="onChange('inner', localInner)" v-model="localInner" label="Inner" color="#9674E2" />
+        <FormInput @change="onChange('padding', localPadding)" v-model="localPadding" label="Padding" color="#96FF43" />
     </div>
 </template>
