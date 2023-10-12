@@ -47,12 +47,14 @@ const insideInnerStyle = computed(() => {
         <div :class="$style.outer" :style="outerStyle">
             <div v-if="outer > 0" :class="$style.insideOuterInfo" :style="{ height: outer + 'px' }">
                 <Counter :value="outer" />
-                <!-- <span>{{ outer }}</span> -->
             </div>
-            <div v-if="padding > 10" :class="$style.paddingInfo" :style="{ height: padding + 'px' }">{{ padding }}</div>
+            <div v-if="padding > 10" :class="$style.paddingInfo" :style="{ height: padding + 'px' }">
+                <Counter :value="padding" />
+            </div>
             <div :class="$style.inner" :style="innerStyle">
                 <div :class="$style.insideInner" :style="insideInnerStyle">
-                    <div v-if="inner > 0" :class="$style.insideInnerInfo" :style="{ height: inner + 'px' }">{{ inner }}
+                    <div v-if="inner > 0" :class="$style.insideInnerInfo" :style="{ height: inner + 'px' }">
+                        <Counter :value="inner" />
                     </div>
                     <img src="./../assets/logo.svg" alt="">
                 </div>
@@ -172,8 +174,4 @@ const insideInnerStyle = computed(() => {
     z-index: 0;
 }
 
-.insideOuterInfoText {
-    width: 75%;
-    text-align: center;
-}
 </style>

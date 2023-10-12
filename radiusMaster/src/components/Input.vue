@@ -35,6 +35,14 @@ const onChange = (e) => {
     emits('change', e)
 }
 
+const onIncrement = () => {
+    onChange(value + 1)
+}
+
+const onDecrement = () => {
+    onChange(value - 1)
+}
+
 </script>
 
 <template>
@@ -44,14 +52,14 @@ const onChange = (e) => {
                 {{ label }}
             </span>
             <div :class="$style.counter">
-                <button> {{ '-' }} </button>
-                <input type="number" @input="onChange" v-model="value" :min="min" :max="max" />
-                <button> {{ '+' }} </button>
+                <button @click="onDecrement"> {{ '-' }} </button>
+                <input type="number" @input="onChange" v-model="value" :min="min" :max="max" :step="1" />
+                <button @click="onIncrement"> {{ '+' }} </button>
             </div>
         </div>
         <div :class="$style.rangeWrapper">
-            <input type="range" @input="onChange" v-model="value" :min="min" :max="max" />
-            <v-slider :color="color" v-model="value"></v-slider>
+            <!-- <input type="range" @input="onChange" v-model="value" :min="min" :max="max" /> -->
+            <v-slider :color="color" v-model="value" @update:model-value="onChange"></v-slider>
         </div>
     </div>
 </template>
