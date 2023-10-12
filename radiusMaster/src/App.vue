@@ -1,8 +1,9 @@
 <script setup>
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 
 import View from './components/View.vue';
 import Sliders from './components/Sliders.vue';
+import Onboarding from './components/Onboarding.vue';
 
 const outer = ref(45);
 const inner = ref(10);
@@ -25,19 +26,30 @@ const onChangePadding = (e) => {
   inner.value = newVal > 0 ? newVal : 0;
 }
 
+const showOnboarding = ref(true);
+
+onMounted(() => {
+  window.setTimeout(() => {
+    showOnboarding.value = false;
+  }, 2500)
+})
 
 </script>
 
 <template>
   <div :class="$style.wrapper">
-    <header :class="$style.header">
-      <div :class=$style.logo>
-        <img src="./assets/logo-large.svg" alt="">
-      </div>
-    </header>
-    <View :inner="inner" :padding="padding" :outer="outer" />
-    <Sliders :inner="inner" :padding="padding" :outer="outer" @inner="onChangeInner" @outer="onChangeOuter"
-      @padding="onChangePadding" />
+    <Onboarding v-if="showOnboarding" />
+    <div v-else>
+      <header :class="$style.header">
+        <div :class=$style.logo>
+          <img src="./assets/logo-large.svg" alt="">
+        </div>
+      </header>
+      <View :inner="inner" :padding="padding" :outer="outer" />
+      <Sliders :inner="inner" :padding="padding" :outer="outer" @inner="onChangeInner" @outer="onChangeOuter"
+        @padding="onChangePadding" />
+    </div>
+
   </div>
 </template>
 

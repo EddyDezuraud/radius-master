@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, watch, ref } from 'vue';
+import { defineProps, watch, ref, onMounted } from 'vue';
 
 const props = defineProps({
     value: {
@@ -15,7 +15,6 @@ let animTimer = null;
 watch(() => props.value, (newVal) => {
     currentNumber.value = newVal;
 
-    console.log(animTimer)
 
     if (animTimer === null) {
         anim.value = true
@@ -27,6 +26,10 @@ watch(() => props.value, (newVal) => {
         }, 500);
     }
 });
+
+onMounted(() => {
+    currentNumber.value = props.value;
+})
 
 const currentStyle = () => {
 
