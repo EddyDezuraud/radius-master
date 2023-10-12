@@ -1,4 +1,5 @@
 <script setup>
+import Counter from './Counter.vue';
 import { defineProps, computed } from 'vue'
 
 const props = defineProps({
@@ -45,7 +46,8 @@ const insideInnerStyle = computed(() => {
     <div :class="$style.wrapper">
         <div :class="$style.outer" :style="outerStyle">
             <div v-if="outer > 0" :class="$style.insideOuterInfo" :style="{ height: outer + 'px' }">
-                <span>{{ outer }}</span>
+                <Counter :value="outer" />
+                <!-- <span>{{ outer }}</span> -->
             </div>
             <div v-if="padding > 10" :class="$style.paddingInfo" :style="{ height: padding + 'px' }">{{ padding }}</div>
             <div :class="$style.inner" :style="innerStyle">
@@ -125,7 +127,7 @@ const insideInnerStyle = computed(() => {
     z-index: 2;
     background: #96FF4330;
     color: #96FF43;
-    font-weight: 700;
+    font-weight: 900;
     font-size: 11px;
 }
 
@@ -141,7 +143,7 @@ const insideInnerStyle = computed(() => {
     z-index: 2;
     background: #9674E230;
     color: #9674E2;
-    font-weight: 700;
+    font-weight: 900;
     font-size: 11px;
     border-radius: inherit;
     border-top-right-radius: 3px;
@@ -161,7 +163,7 @@ const insideInnerStyle = computed(() => {
     z-index: 2;
     background: #FF1D5330;
     color: #FF1D53;
-    font-weight: 700;
+    font-weight: 900;
     font-size: 11px;
     border-radius: inherit;
     border-top-right-radius: 3px;
@@ -170,7 +172,7 @@ const insideInnerStyle = computed(() => {
     z-index: 0;
 }
 
-.insideOuterInfo>span {
+.insideOuterInfoText {
     width: 75%;
     text-align: center;
 }

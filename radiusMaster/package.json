@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@ark-ui/vue": "^0.8.0",
-    "vue": "^3.3.4"
+    "vue": "^3.3.4",
+    "vuetify": "^3.3.21"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
