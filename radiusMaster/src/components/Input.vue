@@ -51,6 +51,7 @@ const onChange = (e) => {
         </div>
         <div :class="$style.rangeWrapper">
             <input type="range" @input="onChange" v-model="value" :min="min" :max="max" />
+            <v-slider :color="color" v-model="value"></v-slider>
         </div>
     </div>
 </template>
