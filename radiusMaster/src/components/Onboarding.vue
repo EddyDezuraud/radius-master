@@ -1,6 +1,6 @@
 <template>
     <div :class="$style.wrapper">
-        <svg width="619" height="151" viewBox="0 0 619 151" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg :class="$style.logo" viewBox="0 0 619 151" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="619" height="151" fill="#1E1E1E" />
             <g id="Frame 29" clip-path="url(#clip0_0_1)">
                 <rect width="6485" height="6485" transform="translate(-2451 -1251)" fill="white" />
@@ -89,15 +89,20 @@
     animation-delay: 1s;
 }
 
+.logo {
+    width: 350px;
+    max-width: 100%;
+}
+
 .radius,
 .master {
-    animation: bottAppearing 0.6s ease;
+    animation: bottAppearing 0.8s ease;
     animation-fill-mode: both;
     animation-delay: 0.3s;
 }
 
 .master {
-    animation-delay: 0.6s;
+    animation-delay: 0.4s;
 }
 
 .shield {

@@ -45,15 +45,15 @@ const insideInnerStyle = computed(() => {
 <template>
     <div :class="$style.wrapper">
         <div :class="$style.outer" :style="outerStyle">
-            <div v-if="outer > 0" :class="$style.insideOuterInfo" :style="{ height: outer + 'px' }">
+            <div v-if="outer > 0" :class="[$style.insideOuterInfo, $style.info]" :style="{ height: outer + 'px' }">
                 <Counter :value="outer" />
             </div>
-            <div v-if="padding > 10" :class="$style.paddingInfo" :style="{ height: padding + 'px' }">
+            <div v-if="padding > 10" :class="[$style.paddingInfo, $style.info]" :style="{ height: padding + 'px' }">
                 <Counter :value="padding" />
             </div>
             <div :class="$style.inner" :style="innerStyle">
                 <div :class="$style.insideInner" :style="insideInnerStyle">
-                    <div v-if="inner > 0" :class="$style.insideInnerInfo" :style="{ height: inner + 'px' }">
+                    <div v-if="inner > 0" :class="[$style.insideInnerInfo, $style.info]" :style="{ height: inner + 'px' }">
                         <Counter :value="inner" />
                     </div>
                     <img src="./../assets/logo.svg" alt="">
@@ -64,10 +64,6 @@ const insideInnerStyle = computed(() => {
 </template>
 
 <style module>
-.wrapper {
-    margin-bottom: 40px;
-}
-
 .outer {
     width: 400px;
     max-width: 100%;
@@ -76,6 +72,8 @@ const insideInnerStyle = computed(() => {
     background: linear-gradient(180deg, #ffffff20, #ffffff10);
     position: relative;
     box-shadow: inset 0px 5px 5px #ffffff30, inset 0px 2px 0px #ffffff30, 0 0 10px black;
+    transition: border-radius 0.3s, padding 0.3s;
+    overflow: hidden;
 }
 
 .outer::before {
@@ -90,6 +88,7 @@ const insideInnerStyle = computed(() => {
     background: url(../assets/pattern-center.svg);
     background-size: 100% 100%;
     opacity: 0.05;
+    transition: border-radius 0.3s, width 0.3s;
 }
 
 .inner {
@@ -99,6 +98,7 @@ const insideInnerStyle = computed(() => {
     background: linear-gradient(45deg, #785ABB 0%, #F3F0F9 100%);
     box-sizing: border-box;
     box-shadow: 0 0 10px 5px #a780ff50;
+    transition: border-radius 0.3s, width 0.3s, height 0.3s;
 }
 
 .insideInner {
@@ -110,43 +110,38 @@ const insideInnerStyle = computed(() => {
     align-content: center;
     justify-content: center;
     position: relative;
+    transition: border-radius 0.3s, width 0.3s, height 0.3s;
 }
 
 .insideInner img {
     width: 100px;
 }
 
-.paddingInfo {
+.info {
     position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    aspect-ratio: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    z-index: 2;
-    background: #96FF4330;
-    color: #96FF43;
     font-weight: 900;
     font-size: 11px;
+    aspect-ratio: 1;
+    z-index: 2;
+    top: 0;
+    transition: border-radius 0.3s, width 0.3s, height 0.3s;
+}
+
+.paddingInfo {
+    left: 50%;
+    transform: translateX(-50%);
+    background: #96FF4330;
+    color: #96FF43;
 }
 
 .insideInnerInfo {
-    position: absolute;
-    top: 0;
     left: 0;
-    aspect-ratio: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    z-index: 2;
     background: #9674E230;
     color: #9674E2;
-    font-weight: 900;
-    font-size: 11px;
     border-radius: inherit;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
@@ -154,24 +149,13 @@ const insideInnerStyle = computed(() => {
 }
 
 .insideOuterInfo {
-    position: absolute;
-    top: 0;
     left: 0;
-    aspect-ratio: 1;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    text-align: center;
-    z-index: 2;
     background: #FF1D5330;
     color: #FF1D53;
-    font-weight: 900;
-    font-size: 11px;
     border-radius: inherit;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
     z-index: 0;
 }
-
 </style>
