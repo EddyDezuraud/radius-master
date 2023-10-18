@@ -175,7 +175,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .button {
-    background: linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(255, 255, 255, 0.05));
     border-radius: 10px 0 0 10px;
     height: 42px;
     padding: 0 10px;
