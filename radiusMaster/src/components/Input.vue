@@ -32,7 +32,6 @@ const max = 100;
 const emits = defineEmits('change', 'update:modelValue');
 
 const onChange = (e) => {
-    console.log(e);
     emits('change', e)
 }
 
