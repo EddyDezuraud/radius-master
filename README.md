@@ -2,6 +2,8 @@
 
 Welcome to Radius-Master! 🎨✨
 
+https://github.com/EddyDezuraud/radius-master/assets/27685628/7c4e68ed-cfcb-42d9-a46e-9d604809178f
+
 Radius-Master is a small web application designed to help you calculate the perfect border radius for your CSS elements. Say goodbye to trial and error – with Radius-Master, you can achieve precise and polished designs effortlessly.
 
 ## About Radius-Master
